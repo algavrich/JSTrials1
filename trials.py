@@ -1,6 +1,9 @@
 """Python functions for JavaScript Trials 1."""
 
 
+from pickle import FALSE
+
+
 def output_all_items(items):
     # loop through each item in list of items
     # and print each item to terminal
@@ -80,11 +83,29 @@ def longest_word_length(words):
 
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
+    result = []
+
+    for char in string:
+        if len(result) == 0 or char != result[len(result) - 1]:
+            result.append(char)
+
+    return "".join(result)
 
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    parens = 0
+
+    for char in string:
+        if char == "(":
+            parens += 1
+        elif char == ")":
+            parens -= 1
+            if parens < 0:
+                return False
+
+    return parens == 0
+        
+
 
 
 def compress(string):
